@@ -1,0 +1,82 @@
+/* Custom styles for the slider component */
+
+/* Make the track rounded */
+[data-orientation="horizontal"] {
+  height: 0.5rem !important;
+  border-radius: 9999px !important;
+  position: relative !important;
+  background-color: var(--terminal-gray-light) !important;
+}
+
+/* Make the filled part of the track rounded */
+[data-orientation="horizontal"] > span {
+  border-radius: 9999px !important;
+  height: 0.5rem !important;
+}
+
+/* Update the slider thumb color to be dynamic based on accent color */
+/* This will be overridden by the inline styles from the sliderClass */
+[role="slider"] {
+  height: 1.5rem !important; /* w-6 equivalent (24px) */
+  width: 1.5rem !important; /* h-6 equivalent (24px) */
+  border-radius: 50% !important;
+  background-color: var(--thumb-color, #ff5a00) !important;
+  border: 2px solid #2d2d2d !important; /* Match the widget color (#2d2d2d) */
+  transform: translate(-50%, -50%) !important;
+  left: var(--radix-slider-thumb-transform) !important;
+  top: 50% !important;
+  position: absolute !important;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) !important;
+}
+
+/* Ensure the thumb is properly positioned */
+[data-orientation="horizontal"] [role="slider"] {
+  margin: 0 !important;
+}
+
+/* Remove any transforms that might be making it non-circular */
+[role="slider"]::after,
+[role="slider"]::before {
+  display: none !important;
+}
+
+/* Color-specific thumb styles */
+.thumb-orange [role="slider"] {
+  background-color: var(--terminal-orange) !important;
+}
+
+.thumb-blue [role="slider"] {
+  background-color: var(--terminal-blue) !important;
+}
+
+.thumb-green [role="slider"] {
+  background-color: var(--terminal-green) !important;
+}
+
+.thumb-purple [role="slider"] {
+  background-color: var(--terminal-purple) !important;
+}
+
+.thumb-pink [role="slider"] {
+  background-color: var(--terminal-pink) !important;
+}
+
+.thumb-red [role="slider"] {
+  background-color: var(--terminal-red) !important;
+}
+
+.thumb-yellow [role="slider"] {
+  background-color: var(--terminal-yellow) !important;
+}
+
+.thumb-teal [role="slider"] {
+  background-color: var(--terminal-teal) !important;
+}
+
+.thumb-indigo [role="slider"] {
+  background-color: var(--terminal-indigo) !important;
+}
+
+.thumb-white [role="slider"] {
+  background-color: #ffffff !important;
+}

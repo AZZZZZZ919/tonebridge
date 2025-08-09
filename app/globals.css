@@ -1,0 +1,618 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Terminal Theme Colors */
+    --terminal-background: #121212;
+    --terminal-foreground: #f5f5f5;
+    --terminal-orange: #ff5a00;
+    --terminal-orange-muted: rgba(255, 90, 0, 0.7);
+    --terminal-orange-light: #ff7a30;
+    --terminal-gray: #2d2d2d;
+    --terminal-gray-light: #3d3d3d;
+    --terminal-gray-muted: #6d6d6d;
+    --terminal-green: #22c55e;
+    --terminal-blue: #3b82f6;
+    --terminal-purple: #a855f7;
+    --terminal-pink: #ec4899;
+    --terminal-red: #ef4444;
+    --terminal-yellow: #eab308;
+    --terminal-teal: #14b8a6;
+    --terminal-indigo: #6366f1;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Font utility classes */
+.font-dm-sans {
+  font-family: var(--font-dm-sans), sans-serif;
+}
+.font-roboto {
+  font-family: var(--font-roboto), sans-serif;
+}
+.font-montserrat {
+  font-family: var(--font-montserrat), sans-serif;
+}
+.font-lato {
+  font-family: var(--font-lato), sans-serif;
+}
+.font-source-sans {
+  font-family: var(--font-source-sans), sans-serif;
+}
+
+/* Terminal theme utility classes */
+.bg-terminal-background {
+  background-color: var(--terminal-background) !important;
+}
+.bg-terminal-gray {
+  background-color: var(--terminal-gray) !important;
+}
+.bg-terminal-gray-light {
+  background-color: var(--terminal-gray-light) !important;
+}
+.text-terminal-foreground {
+  color: var(--terminal-foreground) !important;
+}
+.text-terminal-orange {
+  color: var(--terminal-orange) !important;
+}
+.border-terminal-gray {
+  border-color: var(--terminal-gray) !important;
+}
+.border-terminal-gray-light {
+  border-color: var(--terminal-gray-light) !important;
+}
+.border-terminal-orange {
+  border-color: var(--terminal-orange) !important;
+}
+.bg-terminal-orange {
+  background-color: var(--terminal-orange) !important;
+}
+.bg-terminal-orange-light {
+  background-color: var(--terminal-orange-light) !important;
+}
+.hover\:bg-terminal-gray-light:hover {
+  background-color: var(--terminal-gray-light) !important;
+}
+.hover\:bg-terminal-orange-light:hover {
+  background-color: var(--terminal-orange-light) !important;
+}
+.hover\:text-terminal-orange:hover {
+  color: var(--terminal-orange) !important;
+}
+.placeholder\:text-terminal-gray-muted::placeholder {
+  color: var(--terminal-gray-muted) !important;
+}
+
+/* Color utility classes for other accent colors */
+.bg-blue-500 {
+  background-color: var(--terminal-blue) !important;
+}
+.bg-green-500 {
+  background-color: var(--terminal-green) !important;
+}
+.bg-purple-500 {
+  background-color: var(--terminal-purple) !important;
+}
+.bg-pink-500 {
+  background-color: var(--terminal-pink) !important;
+}
+.bg-red-500 {
+  background-color: var(--terminal-red) !important;
+}
+.bg-yellow-500 {
+  background-color: var(--terminal-yellow) !important;
+}
+.bg-teal-500 {
+  background-color: var(--terminal-teal) !important;
+}
+.bg-indigo-500 {
+  background-color: var(--terminal-indigo) !important;
+}
+
+.hover\:bg-blue-600:hover {
+  background-color: color-mix(in srgb, var(--terminal-blue), #000 10%) !important;
+}
+.hover\:bg-green-600:hover {
+  background-color: color-mix(in srgb, var(--terminal-green), #000 10%) !important;
+}
+.hover\:bg-purple-600:hover {
+  background-color: color-mix(in srgb, var(--terminal-purple), #000 10%) !important;
+}
+.hover\:bg-pink-600:hover {
+  background-color: color-mix(in srgb, var(--terminal-pink), #000 10%) !important;
+}
+.hover\:bg-red-600:hover {
+  background-color: color-mix(in srgb, var(--terminal-red), #000 10%) !important;
+}
+.hover\:bg-yellow-600:hover {
+  background-color: color-mix(in srgb, var(--terminal-yellow), #000 10%) !important;
+}
+.hover\:bg-teal-600:hover {
+  background-color: color-mix(in srgb, var(--terminal-teal), #000 10%) !important;
+}
+.hover\:bg-indigo-600:hover {
+  background-color: color-mix(in srgb, var(--terminal-indigo), #000 10%) !important;
+}
+
+.text-blue-500 {
+  color: var(--terminal-blue) !important;
+}
+.text-green-500 {
+  color: var(--terminal-green) !important;
+}
+.text-purple-500 {
+  color: var(--terminal-purple) !important;
+}
+.text-pink-500 {
+  color: var(--terminal-pink) !important;
+}
+.text-red-500 {
+  color: var(--terminal-red) !important;
+}
+.text-yellow-500 {
+  color: var(--terminal-yellow) !important;
+}
+.text-teal-500 {
+  color: var(--terminal-teal) !important;
+}
+.text-indigo-500 {
+  color: var(--terminal-indigo) !important;
+}
+
+.hover\:text-blue-500:hover {
+  color: var(--terminal-blue) !important;
+}
+.hover\:text-green-500:hover {
+  color: var(--terminal-green) !important;
+}
+.hover\:text-purple-500:hover {
+  color: var(--terminal-purple) !important;
+}
+.hover\:text-pink-500:hover {
+  color: var(--terminal-pink) !important;
+}
+.hover\:text-red-500:hover {
+  color: var(--terminal-red) !important;
+}
+.hover\:text-yellow-500:hover {
+  color: var(--terminal-yellow) !important;
+}
+.hover\:text-teal-500:hover {
+  color: var(--terminal-teal) !important;
+}
+.hover\:text-indigo-500:hover {
+  color: var(--terminal-indigo) !important;
+}
+
+.border-blue-500 {
+  border-color: var(--terminal-blue) !important;
+}
+.border-green-500 {
+  border-color: var(--terminal-green) !important;
+}
+.border-purple-500 {
+  border-color: var(--terminal-purple) !important;
+}
+.border-pink-500 {
+  border-color: var(--terminal-pink) !important;
+}
+.border-red-500 {
+  border-color: var(--terminal-red) !important;
+}
+.border-yellow-500 {
+  border-color: var(--terminal-yellow) !important;
+}
+.border-teal-500 {
+  border-color: var(--terminal-teal) !important;
+}
+.border-indigo-500 {
+  border-color: var(--terminal-indigo) !important;
+}
+
+/* Slider thumb colors */
+.thumb-orange [role="slider"] {
+  background-color: var(--terminal-orange) !important;
+}
+
+.thumb-blue [role="slider"] {
+  background-color: var(--terminal-blue) !important;
+}
+
+.thumb-green [role="slider"] {
+  background-color: var(--terminal-green) !important;
+}
+
+.thumb-purple [role="slider"] {
+  background-color: var(--terminal-purple) !important;
+}
+
+.thumb-pink [role="slider"] {
+  background-color: var(--terminal-pink) !important;
+}
+
+.thumb-red [role="slider"] {
+  background-color: var(--terminal-red) !important;
+}
+
+.thumb-yellow [role="slider"] {
+  background-color: var(--terminal-yellow) !important;
+}
+
+.thumb-teal [role="slider"] {
+  background-color: var(--terminal-teal) !important;
+}
+
+.thumb-indigo [role="slider"] {
+  background-color: var(--terminal-indigo) !important;
+}
+
+/* Slider track colors - fixed to avoid nested selectors with & */
+[data-orientation="horizontal"] > span.bg-terminal-orange {
+  background-color: var(--terminal-orange) !important;
+}
+[data-orientation="horizontal"] > span.bg-blue-500 {
+  background-color: var(--terminal-blue) !important;
+}
+[data-orientation="horizontal"] > span.bg-green-500 {
+  background-color: var(--terminal-green) !important;
+}
+[data-orientation="horizontal"] > span.bg-purple-500 {
+  background-color: var(--terminal-purple) !important;
+}
+[data-orientation="horizontal"] > span.bg-pink-500 {
+  background-color: var(--terminal-pink) !important;
+}
+[data-orientation="horizontal"] > span.bg-red-500 {
+  background-color: var(--terminal-red) !important;
+}
+[data-orientation="horizontal"] > span.bg-yellow-500 {
+  background-color: var(--terminal-yellow) !important;
+}
+[data-orientation="horizontal"] > span.bg-teal-500 {
+  background-color: var(--terminal-teal) !important;
+}
+[data-orientation="horizontal"] > span.bg-indigo-500 {
+  background-color: var(--terminal-indigo) !important;
+}
+
+/* Remove focus outlines from command input */
+[cmdk-input] {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: var(--terminal-gray-light) !important;
+}
+
+[cmdk-input]:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: var(--terminal-gray-light) !important;
+}
+
+/* Remove borders from command input */
+[cmdk-input] {
+  border: none !important;
+  border-bottom: 1px solid rgba(61, 61, 61, 0.2) !important;
+}
+
+[cmdk-input]:focus {
+  border: none !important;
+  border-bottom: 1px solid rgba(61, 61, 61, 0.2) !important;
+  box-shadow: none !important;
+}
+
+/* Add this CSS to remove the separator line between search and results */
+[cmdk-separator] {
+  display: none !important;
+}
+
+[cmdk-input-wrapper] {
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+[cmdk-list] {
+  border-top: none !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Make search icon match placeholder text color */
+[cmdk-input-wrapper] svg {
+  color: var(--terminal-gray-muted) !important;
+  opacity: 0.7 !important;
+}
+
+/* Fix double borders on focus */
+*:focus {
+  outline: none !important;
+}
+
+[data-radix-popper-content-wrapper] * {
+  outline: none !important;
+}
+
+/* Fix drawer width */
+[data-state="open"][role="dialog"] {
+  max-width: 100% !important;
+}
+
+/* Make drawer content match container width */
+.drawer-content {
+  max-width: 1024px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+}
+
+/* Make settings section scrollable */
+[role="dialog"] .overflow-y-auto {
+  max-height: calc(100vh - 60px) !important;
+}
+
+/* Fix for shadcn components */
+.bg-background {
+  background-color: var(--terminal-background) !important;
+}
+
+.bg-card {
+  background-color: var(--terminal-gray) !important;
+}
+
+.border-input {
+  border-color: var(--terminal-gray-light) !important;
+}
+
+/* Fix for popover and dropdown content */
+[cmdk-list] {
+  background-color: var(--terminal-gray) !important;
+  color: var(--terminal-foreground) !important;
+}
+
+[cmdk-item] {
+  color: var(--terminal-foreground) !important;
+}
+
+[cmdk-item][data-selected="true"] {
+  background-color: var(--terminal-gray-light) !important;
+}
+
+.radix-select-content,
+.radix-popover-content,
+.radix-dropdown-menu-content {
+  background-color: var(--terminal-gray) !important;
+  color: var(--terminal-foreground) !important;
+  border-color: var(--terminal-gray-light) !important;
+}
+
+/* Fix for sheet content */
+[role="dialog"] {
+  background-color: var(--terminal-background) !important;
+  color: var(--terminal-foreground) !important;
+  border-color: var(--terminal-gray) !important;
+}
+
+/* Make the command menu more seamless */
+.command-menu-seamless [cmdk-input] {
+  border-bottom: none !important;
+}
+
+/* Fix for select trigger focus styles - remove white border */
+[data-radix-select-trigger][data-state="open"],
+[data-radix-select-trigger]:focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 0 2px var(--terminal-orange) !important;
+  border-color: transparent !important;
+}
+
+/* Fix for orange border on select trigger */
+.orange-accent [data-radix-select-trigger][data-state="open"],
+.orange-accent [data-radix-select-trigger]:focus-visible {
+  box-shadow: 0 0 0 2px var(--terminal-orange) !important;
+}
+
+.blue-accent [data-radix-select-trigger][data-state="open"],
+.blue-accent [data-radix-select-trigger]:focus-visible {
+  box-shadow: 0 0 0 2px var(--terminal-blue) !important;
+}
+
+.green-accent [data-radix-select-trigger][data-state="open"],
+.green-accent [data-radix-select-trigger]:focus-visible {
+  box-shadow: 0 0 0 2px var(--terminal-green) !important;
+}
+
+/* Fix for all form elements to have consistent focus styles */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[data-radix-select-trigger]:focus-visible,
+[data-radix-select-trigger][data-state="open"] {
+  outline: none !important;
+  box-shadow: 0 0 0 2px var(--terminal-orange) !important;
+  border-color: transparent !important;
+}
+
+/* Style the drawer pull indicator */
+[data-radix-drawer-content] [data-state] {
+  opacity: 0.7 !important;
+}
+
+/* Ensure the pull indicator has the same opacity as the description text */
+[data-radix-drawer-content] [data-state="closed"],
+[data-radix-drawer-content] [data-state="open"] {
+  opacity: 0.7 !important;
+}
+
+/* Prevent drawer resizing during transitions */
+.drawer-no-resize {
+  transition-property: transform !important;
+}
+
+.drawer-no-resize [data-state] {
+  transition-property: transform, opacity !important;
+}
+
+.drawer-no-resize [data-radix-drawer-content] {
+  transition-property: transform !important;
+}
+
+/* Ensure content doesn't resize during transitions */
+[data-radix-drawer-content] {
+  height: auto !important;
+  max-height: 90vh !important;
+}
+
+/* Ensure smooth transitions */
+[data-radix-drawer-content][data-state="open"],
+[data-radix-drawer-content][data-state="closed"] {
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Fix drawer resizing issues */
+[role="dialog"][data-state] {
+  height: auto !important;
+  transform-origin: bottom center !important;
+}
+
+/* Prevent content height changes during transitions */
+[data-radix-drawer-content] {
+  transform-origin: bottom center !important;
+  height: auto !important;
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Fix for drawer content */
+.drawer-content-container {
+  height: auto !important;
+  max-height: 90vh !important;
+  overflow: hidden !important;
+}
+
+/* Ensure drawer overlay doesn't cause layout shifts */
+[data-radix-drawer-overlay] {
+  transition: opacity 300ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Fix for drawer content height */
+[data-radix-drawer-content] > div {
+  height: auto !important;
+}
+
+/* Prevent height animations */
+@keyframes none {
+  from {
+  }
+  to {
+  }
+}
+
+/* Apply to drawer elements */
+[data-radix-drawer-content],
+[data-radix-drawer-content] > *,
+[data-radix-drawer-content] > * > * {
+  animation-name: none !important;
+  transition-property: transform, opacity !important;
+  transition-duration: 300ms !important;
+}
+
+/* Fix for drawer content height calculation */
+.drawer-fixed-height {
+  height: auto !important;
+  max-height: 80vh !important;
+  overflow: hidden !important;
+}
+
+/* Ensure drawer content maintains size during transitions */
+.drawer-content-inner {
+  height: auto !important;
+  transform: none !important;
+}
